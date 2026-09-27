@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>OAuth Dashboard</title>
+</head>
+<body>
+<h1>Dashboard</h1>
+<p>Authentication Status: <span th:text="${isAuthenticated ? 'Authenticated' : 'Not Authenticated'}">Status</span></p>
+
+<div th:if="${isAuthenticated}">
+    <p><strong>Name:</strong> <span th:text="${name}">User Name</span></p>
+    <p><strong>Email:</strong> <span th:text="${email}">User Email</span></p>
+</div>
+
+<form th:action="@{/logout}" method="post">
+    <button type="submit">Logout</button>
+</form>
+</body>
+</html>
